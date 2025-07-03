@@ -3,7 +3,7 @@ const path=require("path");
 const nodemailer=require("nodemailer");
 
 const app=express();
-const port=1000;
+const port = process.env.PORT || 1000;
 
 app.set("view engine","ejs");
 app.set("views",path.resolve("views"));
