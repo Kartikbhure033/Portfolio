@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kartik | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+ <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+          <h1>Kartik Bhure</h1>
+          <p>Software Developer | Web Developer | JavaScript Enthusiast</p>
+          
+          <!-- 👇 Description Added -->
+          <div class="hero-description">
+            <p>
+              Passionate about building modern web applications with clean UI and powerful backend. 
+              I specialize in full-stack development using Node.js, MongoDB, and responsive design techniques.
+              Currently pursuing B.Tech at Bhagwan Mahavir University and exploring freelance opportunities.
+            </p>
+          </div>
+
+           <div class="resume-container">
+              <a href="/Kartik Bhure (1).pdf" target="_blank" class="resume-btn">View Resume</a>
+           </div>
+          
+          <div class="hero-nav">
+            <button onclick="scrollToSection('skills')">Skills</button>
+            <!-- <button onclick="scrollToSection('experience')">Experience</button> -->
+            <button onclick="scrollToSection('projects')">Projects</button>
+            <button onclick="scrollToSection('testimonials')">Testimonials</button>
+            <button onclick="scrollToSection('contact')">Contact</button>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/kartik-bhure-014310293/" target="_blank" rel="noopener noreferrer"aria-label="LinkedIn">
+              <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/Kartikbhure033" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fab fa-github fa-2x"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      
+
+      
+
+  <!-- Horizontally‑scrolling Sections -->
+  <div class="sections-container">
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-content">
+        <h2>Skills</h2>
+        <div class="skills-list">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Node.js</span>
+          <span>MongoDB</span>
+          <span>Git</span>
+          <span>Responsive Design</span>
+          <span>Restfull API</span>
+          <span>Json Web Token</span>
+          <span>Google OAuth Strategy</span> 
+          <span>Authentication</span>
+        </div>
+      </div>
+    </section>
+
+
+   <!-- Experience -->
+<!-- <section id="experience">
+  <div class="section-content"> -->
+    <!-- 👇 Icon -->
+    <!-- <div style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">
+      💼
+    </div>
+
+    <h2>Experience</h2>
+    <div class="experience-grid">
+      <div class="experience-card">
+        <h3>Web Development Intern</h3>
+        <p class="company">ABC Tech Solutions | Jan 2024 – May 2024</p>
+        <p>Built responsive web pages, integrated REST APIs, and collaborated on full-stack features using Node.js and MongoDB.</p>
+      </div>
+      <div class="experience-card">
+        <h3>Freelance Web Developer</h3>
+        <p class="company">Self-Employed | 2023 – Present</p>
+        <p>Worked with clients to design and develop modern websites with a focus on performance, accessibility, and clean UI.</p>
+      </div>
+    </div> -->
+
+    <!-- 👇 Centered Resume Button -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <button class="experience-cta">View Resume</button>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-content">
+        <h2>Projects</h2>
+        <div class="work-grid">
+          <div class="card">
+            <img src="image.png" alt="Project 1" />
+            <h3>The Hanger</h3>
+            <p>The Hanger is a full‑stack e‑commerce site where users can browse a curated selection of fashion and lifestyle products, sign in quickly with Google or a secure session, manage their cart in real time, and complete purchases via integrated Razorpay payments—all delivered through a clean, responsive interface.</p>
+            <a href="https://the-hanger.onrender.com" class="link-btn">View Project</a>
+          </div>
+          <div class="card">
+            <img src="/WhatsApp Image 2025-07-02 at 17.43.56_7ead8c14.jpg" alt="Project 2" />
+            <h3>URL Shortener</h3>
+            <p>URL Shortener is a full‑stack web app that lets users create and manage custom short links: sign in securely, generate unique URLs stored in MongoDB, and redirect visitors seamlessly—all through a simple, responsive interface built with Node.js, Express, EJS, and JWT‑based authentication.</p>
+            <a href="https://my-new-url-shortner.onrender.com" class="link-btn">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <div class="section-content">
+        <h2>Testimonials</h2>
+        <div class="testimonials-list">
+          <blockquote>
+           “Working with Kartik on my personal portfolio was an outstanding experience. He crafted a clean, responsive design using HTML, CSS, and JavaScript that perfectly showcases my work. The contact form he integrated with Nodemailer works flawlessly—messages reach my inbox instantly without any hassle. Throughout the process, Kartik was attentive, communicated clearly, and delivered ahead of schedule. I’m thrilled with the result and would recommend his development skills to anyone seeking a professional, user‑friendly portfolio.”
+            <cite>Kavan Limbani</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="section-content">
+        <h2>Contact</h2>
+        <form action="/Sendmail" method="post">
+          <input type="text" placeholder="Your Name" id="fullname" required name="fullname"/>
+          <input type="email" placeholder="Your Email" required  id="email" name="email"/>
+          <textarea rows="5" placeholder="Your Message" required id="Messages"  name="Messages"></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 Kartik Bhure. All rights reserved.
+  </footer>
+
+  <!-- Scroll Script -->
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
