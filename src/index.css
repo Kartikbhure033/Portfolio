@@ -73,8 +73,7 @@
   outline: none !important;
 }
 
-a,
-button {
+a, button {
   outline: none !important;
   -webkit-tap-highlight-color: transparent;
 }
@@ -1177,17 +1176,9 @@ body {
   border-radius: 50%;
 }
 
-.dot-red {
-  background-color: #EF4444;
-}
-
-.dot-yellow {
-  background-color: #EAB308;
-}
-
-.dot-green {
-  background-color: #22C55E;
-}
+.dot-red { background-color: #EF4444; }
+.dot-yellow { background-color: #EAB308; }
+.dot-green { background-color: #22C55E; }
 
 .window-url-badge {
   font-family: var(--font-mono);
@@ -2051,12 +2042,9 @@ body {
 }
 
 @keyframes polaroidBob {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px) rotate(7deg);
   }
-
   50% {
     transform: translateY(-10px) rotate(9deg);
   }
@@ -2086,13 +2074,8 @@ body {
 }
 
 @keyframes tickerScroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-33.333%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
 }
 
 .tech-ticker-item {
@@ -2189,25 +2172,10 @@ body {
   z-index: 10;
 }
 
-.plus-tl {
-  top: -12px;
-  left: -12px;
-}
-
-.plus-tr {
-  top: -12px;
-  right: -12px;
-}
-
-.plus-bl {
-  bottom: -12px;
-  left: -12px;
-}
-
-.plus-br {
-  bottom: -12px;
-  right: -12px;
-}
+.plus-tl { top: -12px; left: -12px; }
+.plus-tr { top: -12px; right: -12px; }
+.plus-bl { bottom: -12px; left: -12px; }
+.plus-br { bottom: -12px; right: -12px; }
 
 .portrait-floating-meta-pill {
   position: absolute;
@@ -2728,13 +2696,8 @@ body {
 }
 
 @keyframes processScroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .process-marquee-phrase {
@@ -3351,8 +3314,7 @@ body {
 
 /* Hamburger Button with 2 Clean White Lines (Only Visible on Mobile) */
 .image1-hamburger-btn {
-  display: none;
-  /* Hidden on laptop/desktop screen */
+  display: none; /* Hidden on laptop/desktop screen */
   width: 40px;
   height: 40px;
   background: rgba(0, 0, 0, 0.22);
@@ -3361,8 +3323,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3.5px;
-  /* Reduced gap between the two white lines */
+  gap: 3.5px; /* Reduced gap between the two white lines */
   cursor: pointer;
   padding: 0;
   z-index: 25;
@@ -3371,10 +3332,8 @@ body {
 
 @media (max-width: 860px) {
   .image1-hamburger-btn {
-    display: flex !important;
-    /* Visible on mobile */
-    gap: 3.5px;
-    /* Reduced gap between lines on mobile view */
+    display: flex !important; /* Visible on mobile */
+    gap: 3.5px; /* Reduced gap between lines on mobile view */
   }
 }
 
@@ -3587,16 +3546,13 @@ body {
     gap: 8px;
     z-index: 5;
   }
-
   .lets-talk-avatar-frame {
     width: 32px !important;
     height: 32px !important;
   }
-
   .lets-talk-name {
     font-size: 11px !important;
   }
-
   .lets-talk-role {
     display: none;
   }
@@ -3932,25 +3888,10 @@ body {
   z-index: 10;
 }
 
-.plus-tl {
-  top: -10px;
-  left: -10px;
-}
-
-.plus-tr {
-  top: -10px;
-  right: -10px;
-}
-
-.plus-bl {
-  bottom: -10px;
-  left: -10px;
-}
-
-.plus-br {
-  bottom: -10px;
-  right: -10px;
-}
+.plus-tl { top: -10px; left: -10px; }
+.plus-tr { top: -10px; right: -10px; }
+.plus-bl { bottom: -10px; left: -10px; }
+.plus-br { bottom: -10px; right: -10px; }
 
 .portrait-image-inner {
   width: 100%;
@@ -4184,7 +4125,6 @@ body {
     grid-template-columns: 50px 1fr;
     gap: 16px;
   }
-
   .project-col-preview {
     grid-column: 1 / -1;
     margin-top: 14px;
