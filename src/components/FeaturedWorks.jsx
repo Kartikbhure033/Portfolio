@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Layers, Cpu } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { BookstorePreview, SalonPreview, CrudPreview, SaasPreview } from './ProjectPreviews';
+import { MotionWords } from './MotionText';
+
+const luxuryEase = [0.16, 1, 0.3, 1];
 
 export default function FeaturedWorks() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -146,17 +149,33 @@ export default function FeaturedWorks() {
       <div className="container">
         {/* Section Header */}
         <div className="projects-section-header">
-          <div className="projects-category-eyebrow">
+          <motion.div
+            className="projects-category-eyebrow"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: luxuryEase }}
+          >
             <span className="eyebrow-accent-number">03</span>
             <span className="eyebrow-sep">/</span>
             <span>SELECTED PROJECTS</span>
-          </div>
+          </motion.div>
           <h2 className="projects-main-title">
-            FEATURED WORK &amp; CODE ARCHITECTURE.
+            <MotionWords
+              text="FEATURED WORK & CODE ARCHITECTURE."
+              delay={0.12}
+              stagger={0.04}
+            />
           </h2>
-          <p className="projects-main-subtext">
+          <motion.p
+            className="projects-main-subtext"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: luxuryEase }}
+          >
             Production-grade web applications, business management suites, and full-stack software engineered with clean code and modern frameworks.
-          </p>
+          </motion.p>
         </div>
 
         {/* Project List / Accordion Rows (All Preview Cards Visible on Scroll) */}

@@ -1,10 +1,26 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Mail, Phone, ArrowUp, ArrowUpRight, Sparkles } from 'lucide-react';
 import { GithubIcon } from './Icons';
 
+const luxuryEase = [0.16, 1, 0.3, 1];
+
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { duration: 1.25 });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    if (window.lenis) {
+      window.lenis.scrollTo(href, { duration: 1.25 });
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -16,15 +32,15 @@ export default function Footer() {
           <div className="footer-col-nav">
             <span className="footer-col-heading">Navigation</span>
             <ul className="footer-nav-links">
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#about">About Me</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#projects">Selected Projects</a></li>
-              <li><a href="#contact">Get In Touch</a></li>
+              <li><a href="#hero" onClick={(e) => handleNavClick(e, '#hero')}>Home</a></li>
+              <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')}>About Me</a></li>
+              <li><a href="#experience" onClick={(e) => handleNavClick(e, '#experience')}>Experience</a></li>
+              <li><a href="#projects" onClick={(e) => handleNavClick(e, '#projects')}>Selected Projects</a></li>
+              <li><a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>Get In Touch</a></li>
             </ul>
           </div>
 
-          {/* Column 3: Social Connections & Resume */}
+          {/* Column 2: Social Connections & Resume */}
           <div className="footer-col-socials">
             <span className="footer-col-heading">Connect &amp; Social</span>
             <div className="footer-social-pills-list">
@@ -71,10 +87,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Massive Bold Watermark Name across bottom (Directly matching Dribbble frame 00:36 "Michael ®") */}
-        <div className="footer-massive-brand-watermark" aria-hidden="true">
+        {/* Massive Bold Watermark Name across bottom (matching Dribbble frame) */}
+        <motion.div
+          className="footer-massive-brand-watermark"
+          aria-hidden="true"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1.0, ease: luxuryEase }}
+        >
           KARTIK ®
-        </div>
+        </motion.div>
 
         {/* Bottom Copyright & Back to Top Line */}
         <div className="footer-bottom-bar">

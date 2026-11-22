@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Preloader({ onComplete }) {
-  // Only load ONCE per session when the user arrives
+  // Check if visited in this session
   const [hasVisited, setHasVisited] = useState(() => {
     try {
       return sessionStorage.getItem('kartik_portfolio_visited') === 'true';
@@ -15,18 +15,18 @@ export default function Preloader({ onComplete }) {
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
-    // If the user has already arrived in this session, skip preloader completely
+    // If the user has already arrived in this session, skip preloader
     if (hasVisited) {
       document.body.style.overflow = '';
       if (onComplete) onComplete();
       return;
     }
 
-    // Prevent scrolling during the first arrival loader
+    // Prevent scrolling during arrival count
     document.body.style.overflow = 'hidden';
 
     const startTime = performance.now();
-    const duration = 1500; // 1.5 seconds smooth countdown
+    const duration = 1500; // 1.5s smooth acceleration
 
     const updateCounter = (currentTime) => {
       const elapsed = currentTime - startTime;
@@ -42,16 +42,16 @@ export default function Preloader({ onComplete }) {
         requestAnimationFrame(updateCounter);
       } else {
         setCount(100);
+        // Pause briefly at 100% so user registers "100%", then begin lifting curtain
         setTimeout(() => {
-          setIsFinished(true);
-          try {
-            sessionStorage.setItem('kartik_portfolio_visited', 'true');
-          } catch {
-            // ignore storage restrictions
-          }
-          setHasVisited(true);
-          document.body.style.overflow = '';
-          if (onComplete) onComplete();
+          setIsFinished(true); // Curtain starts sliding upward
+
+          // Trigger home page animations right as the curtain unveils the screen (600ms into slide)
+          // so all navbar items, text, portrait, and buttons animate LIVE in front of the user!
+          setTimeout(() => {
+            document.body.style.overflow = '';
+            if (onComplete) onComplete();
+          }, 600);
         }, 250);
       }
     };
@@ -64,20 +64,32 @@ export default function Preloader({ onComplete }) {
     };
   }, [hasVisited, onComplete]);
 
-  // If already visited, don't render anything to DOM
+  // If already visited and finished exit, don't render to DOM
   if (hasVisited) {
     return null;
   }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence
+      onExitComplete={() => {
+        setHasVisited(true);
+        try {
+          sessionStorage.setItem('kartik_portfolio_visited', 'true');
+        } catch {
+          // ignore storage restrictions
+        }
+        document.body.style.overflow = '';
+        if (onComplete) onComplete();
+      }}
+    >
       {!isFinished && (
         <motion.div
+          key="preloader-curtain"
           className="portfolio-preloader-curtain"
-          initial={{ opacity: 1 }}
+          initial={{ y: '0%' }}
           exit={{
             y: '-100%',
-            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
+            transition: { duration: 0.85, ease: [0.76, 0, 0.24, 1] }
           }}
         >
           {/* Subtle Ambient Background Radial Glow */}
@@ -106,8 +118,8 @@ export default function Preloader({ onComplete }) {
             </div>
 
             <div className="preloader-status-text">
-              <span className="preloader-asterisk">✱</span>
-              <span>INITIALIZING SYSTEM &amp; ASSETS</span>
+              <span className="preloader-asterisk">{count === 100 ? '✦' : '✱'}</span>
+              <span>{count === 100 ? 'PORTFOLIO READY • ENTERING SYSTEM' : 'INITIALIZING ARCHITECTURE & ASSETS'}</span>
             </div>
           </div>
 

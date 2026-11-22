@@ -1,5 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { MotionWords } from './MotionText';
+
+const luxuryEase = [0.16, 1, 0.3, 1];
 
 export default function ExperienceSection() {
   const experiences = [
@@ -78,17 +81,35 @@ export default function ExperienceSection() {
       <div className="container">
         {/* Section Header */}
         <div className="experience-section-header">
-          <div className="experience-category-eyebrow">
+          <motion.div
+            className="experience-category-eyebrow"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: luxuryEase }}
+          >
             <span className="eyebrow-accent-number">02</span>
             <span className="eyebrow-sep">/</span>
             <span>EXPERIENCE &amp; EDUCATION</span>
-          </div>
+          </motion.div>
+
           <h2 className="experience-main-title">
-            PROFESSIONAL JOURNEY &amp; PROVEN IMPACT.
+            <MotionWords
+              text="PROFESSIONAL JOURNEY & PROVEN IMPACT."
+              delay={0.12}
+              stagger={0.04}
+            />
           </h2>
-          <p className="experience-main-subtext">
+
+          <motion.p
+            className="experience-main-subtext"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: luxuryEase }}
+          >
             Hands-on software development internship, verified full-stack client deliverables, and academic foundation in computer applications.
-          </p>
+          </motion.p>
         </div>
 
         {/* Experience Rows */}
@@ -97,10 +118,10 @@ export default function ExperienceSection() {
             <motion.div
               key={exp.id}
               className="experience-timeline-row"
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, delay: idx * 0.12, ease: luxuryEase }}
             >
               <div className="experience-row-inner-grid">
                 {/* Left Column: Number & Period */}
